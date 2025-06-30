@@ -1,0 +1,8 @@
+{
+  "executive_summary": "\n        Red Cross assessment teams have completed 2,439 property evaluations with a 74.3% completion rate. \n        Operations have identified 676 properties requiring immediate response due to major or complete structural damage.\n        Barry, Benton, Boone represent the highest impact zones requiring concentrated resource deployment. \n        Assessment teams are maintaining operational efficiency while prioritizing areas with the greatest structural damage and population impact.\n        Continue current assessment pace while deploying additional resources to high-priority counties.\n        ",
+  "generated_at": "2025-06-30T16:46:46.489558",
+  "data_freshness": "Live",
+  "total_assessments": 2439,
+  "critical_damage": 676,
+  "completion_rate": 74.3
+}

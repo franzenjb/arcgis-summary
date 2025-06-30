@@ -1,0 +1,100 @@
+{
+  "daily_trends": [
+    {
+      "date": "2025-06-16",
+      "assessments": 89,
+      "major_damage": 28,
+      "completion_rate": 90.2
+    },
+    {
+      "date": "2025-06-17",
+      "assessments": 158,
+      "major_damage": 27,
+      "completion_rate": 93.1
+    },
+    {
+      "date": "2025-06-18",
+      "assessments": 112,
+      "major_damage": 32,
+      "completion_rate": 85.5
+    },
+    {
+      "date": "2025-06-19",
+      "assessments": 87,
+      "major_damage": 35,
+      "completion_rate": 85.0
+    },
+    {
+      "date": "2025-06-20",
+      "assessments": 155,
+      "major_damage": 24,
+      "completion_rate": 89.0
+    },
+    {
+      "date": "2025-06-21",
+      "assessments": 149,
+      "major_damage": 15,
+      "completion_rate": 92.9
+    },
+    {
+      "date": "2025-06-22",
+      "assessments": 102,
+      "major_damage": 29,
+      "completion_rate": 86.3
+    },
+    {
+      "date": "2025-06-23",
+      "assessments": 102,
+      "major_damage": 15,
+      "completion_rate": 93.7
+    },
+    {
+      "date": "2025-06-24",
+      "assessments": 134,
+      "major_damage": 18,
+      "completion_rate": 94.8
+    },
+    {
+      "date": "2025-06-25",
+      "assessments": 107,
+      "major_damage": 23,
+      "completion_rate": 91.2
+    },
+    {
+      "date": "2025-06-26",
+      "assessments": 116,
+      "major_damage": 18,
+      "completion_rate": 93.9
+    },
+    {
+      "date": "2025-06-27",
+      "assessments": 104,
+      "major_damage": 34,
+      "completion_rate": 89.8
+    },
+    {
+      "date": "2025-06-28",
+      "assessments": 117,
+      "major_damage": 19,
+      "completion_rate": 87.4
+    },
+    {
+      "date": "2025-06-29",
+      "assessments": 159,
+      "major_damage": 28,
+      "completion_rate": 90.9
+    }
+  ],
+  "predictions": {
+    "completion_forecast": "14 days",
+    "resource_efficiency": 87.3,
+    "risk_score": 8.0,
+    "prediction_accuracy": 94.2
+  },
+  "insights": [
+    "Peak assessment activity occurs between 10 AM - 2 PM",
+    "Jackson County requires additional assessment teams",
+    "Mobile home assessments taking 40% longer than average",
+    "Weather forecast may impact operations in 3 days"
+  ]
+}
