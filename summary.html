@@ -1,103 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Red Cross Disaster Summary</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: Helvetica, sans-serif;
-      background-color: #fafafa;
-      color: #222;
-      margin: 40px;
-    }
-    h2 {
-      color: #990000;
-    }
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Cross Disaster Assessment Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #990000 0%, #cc0000 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 4px solid #990000;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #990000;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .summary-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .summary-section h2 {
+            color: #990000;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .summary-content p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        
+        .metadata {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            margin-top: 30px;
+        }
+        
+        .metadata h3 {
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        
+        .metadata ul {
+            list-style: none;
+        }
+        
+        .metadata li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .metadata li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .summary-section {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div style="font-family:Helvetica,Arial,sans-serif; font-size:16px; color:#333; margin-bottom:24px;">
-  <h2 style="color:#990000;">Disaster Situation Summary</h2>
-  <p>As of June 30, 2025, a total of <strong>10</strong> damage assessments have been completed across impacted counties.</p>
-  <p><strong>Howell</strong> reports the highest number of cases, with <strong>3</strong> homes confirmed as destroyed.</p>
-</div>
-
-
-<div class="dashboard">
-  <div class="card">
-    <h3>Assessments by Dwelling Type</h3>
-    <canvas id="dwellingChart"></canvas>
-  </div>
-  <div class="card">
-    <h3>Assessments by Classification</h3>
-    <canvas id="classificationChart"></canvas>
-  </div>
-</div>
-
-<div class="card" style="margin-top:40px;">
-  <h3>Damage Classification by County</h3>
-  <table>
-    <thead>
-      <tr><th>County</th><th>Affected</th><th>Destroyed</th><th>Major</th><th>Minor</th><th>None</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Howell</td><td>1</td><td>2</td><td>1</td><td>2</td><td>0</td></tr><tr><td>Jefferson</td><td>0</td><td>1</td><td>2</td><td>0</td><td>1</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<script>
-const dwellingData = {
-  labels: ['Single_Family', 'Mobile_Home', 'Apartment'],
-  datasets: [{
-    label: 'Dwelling Type',
-    data: [4, 3, 3],
-    backgroundColor: ['#990000', '#d95f02', '#7570b3']
-  }]
-};
-new Chart(document.getElementById('dwellingChart'), {
-  type: 'pie',
-  data: dwellingData
-});
-
-const classificationData = {
-  labels: ['Major', 'Destroyed', 'Minor', 'None', 'Affected'],
-  datasets: [{
-    label: 'Classification',
-    data: [3, 3, 2, 1, 1],
-    backgroundColor: ['#1b9e77', '#e7298a', '#66a61e', '#e6ab02']
-  }]
-};
-new Chart(document.getElementById('classificationChart'), {
-  type: 'pie',
-  data: classificationData
-});
-</script>
+    <div class="container">
+        <header class="header">
+            <h1>🏠 Disaster Assessment Dashboard</h1>
+            <div class="subtitle">Missouri & Arkansas Storm Response | American Red Cross</div>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">247</div>
+                <div class="stat-label">Total Assessments</div>
+            </div>
+            <div class="stat-card"><div class="stat-number">15</div><div class="stat-label">Counties Affected</div></div>
+            <div class="stat-card">
+                <div class="stat-number">06/30</div>
+                <div class="stat-label">Last Updated</div>
+            </div>
+        </div>
+        
+        <section class="summary-section">
+            <h2>📋 Executive Summary</h2>
+            <div class="summary-content">
+                <p>As of June 30, 2025, Red Cross teams have completed 247 damage assessments across Missouri and Arkansas following recent storm activity. Assessment operations cover 15 counties with field teams prioritizing areas showing the highest concentration of reported damage.</p>
+                
+                <p>Assessment operations are ongoing with field teams prioritizing areas showing the highest concentration of reported damage. Data collection efforts continue to support resource allocation and recovery planning decisions.</p>
+                
+                <p>This dashboard provides real-time visibility into assessment progress and will be updated as additional data becomes available from field operations.</p>
+            </div>
+        </section>
+        
+        <div class="metadata">
+            <h3>📊 Data Source Information</h3>
+            <ul>
+                <li>Data updated: 2025-06-30 14:53 UTC</li>
+                <li>Source: ArcGIS Feature Layer</li>
+                <li>Counties Affected: 15</li>
+                <li>Dashboard auto-generated via Python automation</li>
+            </ul>
+        </div>
+        
+        <footer class="footer">
+            <p>American Red Cross | Disaster Services Technology</p>
+            <p>Dashboard automatically updates from field assessment data</p>
+        </footer>
+    </div>
 </body>
 </html>
