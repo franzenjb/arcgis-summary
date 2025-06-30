@@ -20,8 +20,9 @@
             overflow-x: hidden;
         }
 
+        /* Header */
         .header {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #990000 0%, #cc0000 100%);
             color: white;
             padding: 12px 24px;
             display: flex;
@@ -75,6 +76,18 @@
             font-weight: 500;
         }
 
+        .header-right div {
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .header-right div:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Navigation */
         .nav-container {
             background: white;
             border-bottom: 2px solid #e2e8f0;
@@ -97,20 +110,28 @@
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.2s ease;
+            position: relative;
         }
 
         .nav-tab.active {
-            color: #1e40af;
-            border-bottom-color: #1e40af;
+            color: #990000;
+            border-bottom-color: #990000;
             background: #f8fafc;
         }
 
+        .nav-tab:hover:not(.active) {
+            color: #990000;
+            background: #f1f5f9;
+        }
+
+        /* Main Content */
         .main-content {
             padding: 24px;
             max-width: 1600px;
             margin: 0 auto;
         }
 
+        /* Summary Bar */
         .summary-bar {
             background: white;
             border: 1px solid #e2e8f0;
@@ -143,6 +164,7 @@
             color: #0f172a;
         }
 
+        /* Dashboard Grid */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -150,6 +172,7 @@
             margin-bottom: 24px;
         }
 
+        /* Card */
         .card {
             background: white;
             border: 1px solid #e2e8f0;
@@ -168,6 +191,9 @@
             padding: 16px 20px;
             border-bottom: 1px solid #f1f5f9;
             background: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .card-title {
@@ -180,6 +206,7 @@
             padding: 20px;
         }
 
+        /* KPI Cards */
         .kpi-card {
             text-align: left;
         }
@@ -193,20 +220,38 @@
             letter-spacing: 0.5px;
         }
 
+        .kpi-main {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
         .kpi-value {
             font-size: 28px;
             font-weight: 800;
             color: #0f172a;
             line-height: 1;
-            margin-bottom: 8px;
+        }
+
+        .kpi-unit {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
         }
 
         .kpi-change {
             font-size: 11px;
             font-weight: 600;
-            color: #059669;
+            display: flex;
+            align-items: center;
+            gap: 4px;
             margin-bottom: 8px;
         }
+
+        .kpi-change.positive { color: #059669; }
+        .kpi-change.negative { color: #dc2626; }
+        .kpi-change.neutral { color: #64748b; }
 
         .kpi-prev {
             font-size: 10px;
@@ -214,10 +259,12 @@
             margin-bottom: 12px;
         }
 
+        /* Charts */
         .chart-container {
             width: 100%;
             height: 300px;
             position: relative;
+            min-height: 300px;
         }
 
         .chart-large {
@@ -226,10 +273,17 @@
 
         .chart-large .chart-container {
             height: 400px;
+            min-height: 400px;
         }
 
         .chart-full {
             grid-column: span 4;
+        }
+
+        /* Data Table */
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
         }
 
         .data-table {
@@ -247,6 +301,8 @@
             letter-spacing: 0.5px;
             background: #f8fafc;
             border-bottom: 2px solid #e2e8f0;
+            position: sticky;
+            top: 0;
         }
 
         .data-table td {
@@ -259,6 +315,7 @@
             background: #f8fafc;
         }
 
+        /* Status Badge */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -268,6 +325,7 @@
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .status-badge.complete {
@@ -280,11 +338,17 @@
             color: #92400e;
         }
 
+        .status-badge.pending {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
         .status-badge.critical {
             background: #fee2e2;
             color: #991b1b;
         }
 
+        /* Progress Bars */
         .progress-container {
             margin: 12px 0;
         }
@@ -322,17 +386,19 @@
             transition: width 1s ease;
         }
 
-        .progress-fill.info { background: linear-gradient(90deg, #2563eb, #1d4ed8); }
-        .progress-fill.success { background: linear-gradient(90deg, #059669, #047857); }
-        .progress-fill.warning { background: linear-gradient(90deg, #d97706, #b45309); }
         .progress-fill.critical { background: linear-gradient(90deg, #dc2626, #b91c1c); }
+        .progress-fill.warning { background: linear-gradient(90deg, #d97706, #b45309); }
+        .progress-fill.success { background: linear-gradient(90deg, #059669, #047857); }
+        .progress-fill.info { background: linear-gradient(90deg, #2563eb, #1d4ed8); }
 
+        /* Sparklines */
         .sparkline-container {
             height: 40px;
             margin-top: 12px;
             width: 100%;
         }
 
+        /* Tab Content */
         .tab-content {
             display: none;
         }
@@ -341,6 +407,7 @@
             display: block;
         }
 
+        /* Filters */
         .filters {
             display: flex;
             gap: 16px;
@@ -363,6 +430,7 @@
             font-weight: 600;
             color: #64748b;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .filter-select {
@@ -372,6 +440,7 @@
             font-size: 12px;
             background: white;
             color: #374151;
+            font-weight: 500;
         }
 
         .filter-actions {
@@ -394,14 +463,20 @@
 
         .btn:hover {
             background: #f9fafb;
+            border-color: #9ca3af;
         }
 
         .btn.primary {
-            background: #2563eb;
+            background: #990000;
             color: white;
-            border-color: #2563eb;
+            border-color: #990000;
         }
 
+        .btn.primary:hover {
+            background: #cc0000;
+        }
+
+        /* Live indicators */
         .live-indicator {
             display: inline-flex;
             align-items: center;
@@ -410,6 +485,7 @@
             font-weight: 600;
             color: #059669;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .live-dot {
@@ -425,6 +501,7 @@
             50% { opacity: 0.5; }
         }
 
+        /* Responsive */
         @media (max-width: 1400px) {
             .dashboard-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -453,20 +530,28 @@
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
-            .chart-large, .chart-full {
+            .chart-large {
                 grid-column: span 1;
+            }
+            .chart-full {
+                grid-column: span 1;
+            }
+            .summary-bar {
+                flex-direction: column;
+                gap: 16px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-left">
             <div class="logo">
                 <div class="logo-icon">✚</div>
                 <div>
                     <div class="header-title">Disaster Response Intelligence Platform</div>
-                    <div class="header-subtitle">Version 3.2 | Powered by Emergency Operations Analytics</div>
+                    <div class="header-subtitle">Version 3.2 | Missouri & Arkansas Storm Response</div>
                 </div>
             </div>
         </div>
@@ -477,22 +562,29 @@
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav class="nav-container">
         <div class="nav-tabs">
             <div class="nav-tab active" data-tab="assessments">Property Assessments</div>
+            <div class="nav-tab" data-tab="calls">Emergency Calls</div>
+            <div class="nav-tab" data-tab="shelters">Shelter Operations</div>
             <div class="nav-tab" data-tab="resources">Resource Management</div>
             <div class="nav-tab" data-tab="operations">Field Operations</div>
-            <div class="nav-tab" data-tab="analytics">Predictive Analytics</div>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="main-content">
+        
+        <!-- Property Assessments Tab -->
         <div id="assessments-tab" class="tab-content active">
+            
+            <!-- Summary Bar -->
             <div class="summary-bar">
                 <div class="summary-item">
                     <div class="summary-label">Last Updated</div>
                     <div class="summary-value">
-                        <span id="lastUpdated"></span>
+                        <span id="lastUpdated">14:53 UTC</span>
                         <div class="live-indicator">
                             <div class="live-dot"></div>
                             Live Data
@@ -509,17 +601,146 @@
                 </div>
                 <div class="summary-item">
                     <div class="summary-label">Data Source</div>
-                    <div class="summary-value">Python Pipeline + ArcGIS</div>
+                    <div class="summary-value">ArcGIS Feature Layer</div>
                 </div>
             </div>
 
+            <!-- KPI Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Total Assessments KPI -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Total Property Assessments</div>
+                    </div>
+                    <div class="card-body kpi-card">
+                        <div class="kpi-header">Year to Date</div>
+                        <div class="kpi-main">
+                            <div class="kpi-value">2,439</div>
+                        </div>
+                        <div class="kpi-change positive">
+                            ↗ +5.2% vs previous period
+                        </div>
+                        <div class="kpi-prev">PREV: 2,318 | VAR: +121</div>
+                        <div class="sparkline-container">
+                            <canvas id="assessmentsSparkline" width="200" height="40"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Critical Damage KPI -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Critical Damage Cases</div>
+                    </div>
+                    <div class="card-body kpi-card">
+                        <div class="kpi-header">Major + Destroyed</div>
+                        <div class="kpi-main">
+                            <div class="kpi-value">685</div>
+                        </div>
+                        <div class="kpi-change positive">
+                            ↗ +12.3% requiring immediate response
+                        </div>
+                        <div class="kpi-prev">MAJOR: 487 | DESTROYED: 198</div>
+                        <div class="sparkline-container">
+                            <canvas id="damageSparkline" width="200" height="40"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assessment Rate KPI -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Daily Assessment Rate</div>
+                    </div>
+                    <div class="card-body kpi-card">
+                        <div class="kpi-header">Current Daily Average</div>
+                        <div class="kpi-main">
+                            <div class="kpi-value">116</div>
+                            <div class="kpi-unit">per day</div>
+                        </div>
+                        <div class="kpi-change negative">
+                            ↘ -3.1% vs target rate
+                        </div>
+                        <div class="kpi-prev">TARGET: 120 | GAP: -4</div>
+                        <div class="sparkline-container">
+                            <canvas id="rateSparkline" width="200" height="40"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completion Rate KPI -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Completion Efficiency</div>
+                    </div>
+                    <div class="card-body kpi-card">
+                        <div class="kpi-header">Overall Progress</div>
+                        <div class="kpi-main">
+                            <div class="kpi-value">89.2</div>
+                            <div class="kpi-unit">%</div>
+                        </div>
+                        <div class="kpi-change positive">
+                            ↗ +2.1% improvement this week
+                        </div>
+                        <div class="kpi-prev">COMPLETE: 2,176 | PENDING: 263</div>
+                        <div class="sparkline-container">
+                            <canvas id="completionSparkline" width="200" height="40"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Calls Tab -->
+        <div id="calls-tab" class="tab-content">
+            
+            <!-- Summary Bar -->
+            <div class="summary-bar">
+                <div class="summary-item">
+                    <div class="summary-label">Total Call Volume</div>
+                    <div class="summary-value">
+                        <span>2,047</span>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            Live Data
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Average Response Time</div>
+                    <div class="summary-value">4.2 minutes</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Peak Call Period</div>
+                    <div class="summary-value">June 12-15, 2025</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Call Resolution Rate</div>
+                    <div class="summary-value">94.3%</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
             <div class="filters">
                 <div class="filter-group">
-                    <div class="filter-label">Region:</div>
+                    <div class="filter-label">Call Type:</div>
                     <select class="filter-select">
-                        <option>All Counties (57)</option>
-                        <option>Missouri Counties (30)</option>
-                        <option>Arkansas Counties (27)</option>
+                        <option value="all">All Types</option>
+                        <option value="water">Water Assistance</option>
+                        <option value="food">Food/Nutrition</option>
+                        <option value="shelter">Emergency Shelter</option>
+                        <option value="financial">Financial Aid</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Priority:</div>
+                    <select class="filter-select">
+                        <option value="all">All Priorities</option>
+                        <option value="critical">Critical</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
                     </select>
                 </div>
                 <div class="filter-actions">
@@ -529,183 +750,315 @@
                 </div>
             </div>
 
+            <!-- Dashboard Grid -->
             <div class="dashboard-grid">
+                
+                <!-- Call Volume KPI -->
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Total Property Assessments</div>
+                        <div class="card-title">Daily Call Volume</div>
                     </div>
                     <div class="card-body kpi-card">
-                        <div class="kpi-header">Year to Date</div>
-                        <div class="kpi-value" id="totalAssessments">2,439</div>
-                        <div class="kpi-change">↗ +5.2% vs previous period</div>
-                        <div class="kpi-prev">PREV: 2,318 | VAR: +121</div>
+                        <div class="kpi-header">Today's Total</div>
+                        <div class="kpi-main">
+                            <div class="kpi-value">127</div>
+                            <div class="kpi-unit">calls</div>
+                        </div>
+                        <div class="kpi-change positive">
+                            ↗ +8.3% vs yesterday
+                        </div>
+                        <div class="kpi-prev">YESTERDAY: 117 | TREND: ↗</div>
                         <div class="sparkline-container">
-                            <canvas id="assessmentsSparkline" width="200" height="40"></canvas>
+                            <canvas id="callVolumeSparkline" width="200" height="40"></canvas>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Critical Damage Cases</div>
-                    </div>
-                    <div class="card-body kpi-card">
-                        <div class="kpi-header">Major + Destroyed</div>
-                        <div class="kpi-value" id="criticalDamage">685</div>
-                        <div class="kpi-change">↗ +12.3% requiring immediate response</div>
-                        <div class="kpi-prev">MAJOR: 487 | DESTROYED: 198</div>
-                        <div class="sparkline-container">
-                            <canvas id="damageSparkline" width="200" height="40"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Daily Assessment Rate</div>
-                    </div>
-                    <div class="card-body kpi-card">
-                        <div class="kpi-header">Current Daily Average</div>
-                        <div class="kpi-value" id="assessmentRate">116</div>
-                        <div class="kpi-change">↘ -3.1% vs target rate</div>
-                        <div class="kpi-prev">TARGET: 120 | GAP: -4</div>
-                        <div class="sparkline-container">
-                            <canvas id="rateSparkline" width="200" height="40"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Completion Efficiency</div>
-                    </div>
-                    <div class="card-body kpi-card">
-                        <div class="kpi-header">Overall Progress</div>
-                        <div class="kpi-value" id="completionRate">89.2</div>
-                        <div class="kpi-change">↗ +2.1% improvement this week</div>
-                        <div class="kpi-prev">COMPLETE: 2,176 | PENDING: 263</div>
-                        <div class="sparkline-container">
-                            <canvas id="completionSparkline" width="200" height="40"></canvas>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Call Type Distribution -->
                 <div class="card chart-large">
                     <div class="card-header">
-                        <div class="card-title">Assessment Progress by County (Top 10 Impact Areas)</div>
+                        <div class="card-title">Call Type Distribution</div>
                     </div>
                     <div class="card-body">
                         <div class="chart-container">
-                            <canvas id="countyChart"></canvas>
+                            <canvas id="callTypeChart"></canvas>
                         </div>
                     </div>
                 </div>
 
-                <div class="card chart-large">
-                    <div class="card-header">
-                        <div class="card-title">Damage Level Distribution Analysis</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="damageChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Service Request Breakdown -->
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Property Type Breakdown</div>
+                        <div class="card-title">Service Request Breakdown</div>
                     </div>
                     <div class="card-body">
                         <div class="progress-container">
                             <div class="progress-label">
-                                <span class="progress-label-text">Single Family Homes</span>
-                                <span class="progress-label-value">1,463 (60.0%)</span>
+                                <span class="progress-label-text">General Support</span>
+                                <span class="progress-label-value">1,535 (75.0%)</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill info" style="width: 60%;"></div>
+                                <div class="progress-fill info" style="width: 75%;"></div>
                             </div>
                         </div>
                         
                         <div class="progress-container">
                             <div class="progress-label">
-                                <span class="progress-label-text">Multi-Family Units</span>
-                                <span class="progress-label-value">366 (15.0%)</span>
+                                <span class="progress-label-text">Financial Assistance</span>
+                                <span class="progress-label-value">307 (15.0%)</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill success" style="width: 15%;"></div>
+                                <div class="progress-fill warning" style="width: 15%;"></div>
                             </div>
                         </div>
                         
                         <div class="progress-container">
                             <div class="progress-label">
-                                <span class="progress-label-text">Mobile Homes</span>
-                                <span class="progress-label-value">293 (12.0%)</span>
+                                <span class="progress-label-text">Water Assistance</span>
+                                <span class="progress-label-value">164 (8.0%)</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill warning" style="width: 12%;"></div>
+                                <div class="progress-fill success" style="width: 8%;"></div>
                             </div>
                         </div>
                         
                         <div class="progress-container">
                             <div class="progress-label">
-                                <span class="progress-label-text">Commercial Properties</span>
-                                <span class="progress-label-value">195 (8.0%)</span>
+                                <span class="progress-label-text">Emergency Shelter</span>
+                                <span class="progress-label-value">143 (7.0%)</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill critical" style="width: 8%;"></div>
+                                <div class="progress-fill critical" style="width: 7%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Food/Nutrition</span>
+                                <span class="progress-label-value">82 (4.0%)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill info" style="width: 4%;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Assessment Velocity Trend</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="trendChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Geographic Heat Map -->
                 <div class="card chart-full">
                     <div class="card-header">
-                        <div class="card-title">County Assessment Status Matrix</div>
+                        <div class="card-title">Call Volume by County (Geographic Distribution)</div>
                     </div>
                     <div class="card-body">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>County</th>
-                                    <th>State</th>
-                                    <th>Total</th>
-                                    <th>Complete</th>
-                                    <th>In Progress</th>
-                                    <th>Major Damage</th>
-                                    <th>Completion %</th>
-                                    <th>Priority</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="statusTable">
-                            </tbody>
-                        </table>
+                        <div class="chart-container">
+                            <canvas id="geoHeatMap"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call Timeline -->
+                <div class="card chart-full">
+                    <div class="card-header">
+                        <div class="card-title">Emergency Call Timeline Analysis (Hourly Distribution)</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="callTimelineChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="resources-tab" class="tab-content">
+        <!-- Shelter Operations Tab -->
+        <div id="shelters-tab" class="tab-content">
+            
+            <!-- Summary Bar -->
             <div class="summary-bar">
                 <div class="summary-item">
                     <div class="summary-label">Active Shelters</div>
-                    <div class="summary-value">23 Facilities</div>
+                    <div class="summary-value">
+                        <span>10</span>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            Live Data
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Total Capacity</div>
+                    <div class="summary-value">742 people</div>
                 </div>
                 <div class="summary-item">
                     <div class="summary-label">Current Occupancy</div>
-                    <div class="summary-value">847/1,200 (70.6%)</div>
+                    <div class="summary-value">418 people (56.3%)</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Available Space</div>
+                    <div class="summary-value">324 people</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <div class="filter-label">Location:</div>
+                    <select class="filter-select">
+                        <option value="all">All Locations</option>
+                        <option value="missouri">Missouri Shelters</option>
+                        <option value="arkansas">Arkansas Shelters</option>
+                        <option value="high-capacity">High Capacity (60+)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">Status:</div>
+                    <select class="filter-select">
+                        <option value="all">All Statuses</option>
+                        <option value="available">Available Space</option>
+                        <option value="limited">Limited Space</option>
+                        <option value="full">Near Capacity</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn" onclick="exportData()">Export</button>
+                    <button class="btn" onclick="printReport()">Print</button>
+                    <button class="btn primary" onclick="refreshData()">Refresh</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Occupancy Rate KPI -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Overall Occupancy Rate</div>
+                    </div>
+                    <div class="card-body kpi-card">
+                        <div class="kpi-header">Current Utilization</div>
+                        <div class="kpi-main">
+                            <div class="kpi-value">56.3</div>
+                            <div class="kpi-unit">%</div>
+                        </div>
+                        <div class="kpi-change positive">
+                            ↗ +4.1% increase today
+                        </div>
+                        <div class="kpi-prev">OCCUPIED: 418 | CAPACITY: 742</div>
+                        <div class="sparkline-container">
+                            <canvas id="occupancySparkline" width="200" height="40"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shelter Capacity Overview -->
+                <div class="card chart-large">
+                    <div class="card-header">
+                        <div class="card-title">Shelter Capacity vs Current Occupancy</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="shelterCapacityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demographics Breakdown -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Shelter Population Demographics</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Adults (18+)</span>
+                                <span class="progress-label-value">267 (63.9%)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill info" style="width: 63.9%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Children (5-17)</span>
+                                <span class="progress-label-value">109 (26.1%)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill success" style="width: 26.1%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Young Children (0-4)</span>
+                                <span class="progress-label-value">42 (10.0%)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Special Needs</span>
+                                <span class="progress-label-value">34 (8.1%)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill critical" style="width: 8.1%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geographic Shelter Map -->
+                <div class="card chart-full">
+                    <div class="card-header">
+                        <div class="card-title">Shelter Locations & Status Map</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="shelterMapChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shelter Directory -->
+                <div class="card chart-full">
+                    <div class="card-header">
+                        <div class="card-title">Emergency Shelter Directory & Contact Information</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Shelter Name</th>
+                                        <th>Address</th>
+                                        <th>Contact Person</th>
+                                        <th>Phone</th>
+                                        <th>Capacity</th>
+                                        <th>Current</th>
+                                        <th>Available</th>
+                                        <th>Utilization</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="shelterTable">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other tabs (placeholders) -->
+        <div id="resources-tab" class="tab-content">
+            <div class="summary-bar">
+                <div class="summary-item">
+                    <div class="summary-label">Active Resources</div>
+                    <div class="summary-value">23 Facilities</div>
                 </div>
                 <div class="summary-item">
                     <div class="summary-label">Supply Level</div>
@@ -715,173 +1068,225 @@
                     <div class="summary-label">Distribution Points</div>
                     <div class="summary-value">18 Active</div>
                 </div>
+                <div class="summary-item">
+                    <div class="summary-label">Transport Units</div>
+                    <div class="summary-value">12 Deployed</div>
+                </div>
             </div>
             <div style="text-align: center; padding: 60px; color: #64748b;">
                 <h3>Resource Management Dashboard</h3>
-                <p>Shelter capacity, supply distribution, logistics coordination</p>
+                <p>Coming soon - Supply distribution, logistics coordination</p>
             </div>
         </div>
 
         <div id="operations-tab" class="tab-content">
             <div style="text-align: center; padding: 60px; color: #64748b;">
                 <h3>Field Operations Dashboard</h3>
-                <p>Team deployment, GPS tracking, communication systems</p>
-            </div>
-        </div>
-
-        <div id="analytics-tab" class="tab-content">
-            <div style="text-align: center; padding: 60px; color: #64748b;">
-                <h3>Predictive Analytics Dashboard</h3>
-                <p>Risk modeling, resource optimization, recovery forecasting</p>
+                <p>Coming soon - Team deployment, GPS tracking, communication systems</p>
             </div>
         </div>
     </main>
 
     <script>
-        let dashboardData = {
-            assessments: null,
-            resources: null,
-            operations: null,
-            analytics: null,
-            summary: null
+        // Comprehensive Dashboard Data
+        const dashboardData = {
+            calls: {
+                summary: {
+                    total_calls: 2047,
+                    daily_calls: 127,
+                    priority_calls: 428,
+                    response_time: 4.2,
+                    resolution_rate: 94.3
+                },
+                type_distribution: {
+                    "General Support": 1535,
+                    "Financial Assistance": 307,
+                    "Water Assistance": 164,
+                    "Emergency Shelter": 143,
+                    "Food/Nutrition": 82
+                },
+                county_calls: [
+                    { County: "Taney", State: "MO", Calls: 298, Water: 24, Food: 12, Shelter: 21, Financial: 45 },
+                    { County: "Stone", State: "MO", Calls: 267, Water: 21, Food: 11, Shelter: 19, Financial: 40 },
+                    { County: "Barry", State: "MO", Calls: 234, Water: 19, Food: 9, Shelter: 16, Financial: 35 },
+                    { County: "McDonald", State: "MO", Calls: 189, Water: 15, Food: 8, Shelter: 13, Financial: 28 },
+                    { County: "Newton", State: "MO", Calls: 167, Water: 13, Food: 7, Shelter: 12, Financial: 25 },
+                    { County: "Lawrence", State: "MO", Calls: 145, Water: 12, Food: 6, Shelter: 10, Financial: 22 },
+                    { County: "Boone", State: "AR", Calls: 134, Water: 11, Food: 5, Shelter: 9, Financial: 20 },
+                    { County: "Carroll", State: "AR", Calls: 123, Water: 10, Food: 5, Shelter: 9, Financial: 18 },
+                    { County: "Madison", State: "AR", Calls: 112, Water: 9, Food: 4, Shelter: 8, Financial: 17 },
+                    { County: "Washington", State: "AR", Calls: 98, Water: 8, Food: 4, Shelter: 7, Financial: 15 }
+                ],
+                hourly_distribution: [
+                    { hour: 0, calls: 12 }, { hour: 1, calls: 8 }, { hour: 2, calls: 6 }, { hour: 3, calls: 4 },
+                    { hour: 4, calls: 7 }, { hour: 5, calls: 15 }, { hour: 6, calls: 28 }, { hour: 7, calls: 45 },
+                    { hour: 8, calls: 67 }, { hour: 9, calls: 89 }, { hour: 10, calls: 112 }, { hour: 11, calls: 125 },
+                    { hour: 12, calls: 134 }, { hour: 13, calls: 128 }, { hour: 14, calls: 119 }, { hour: 15, calls: 108 },
+                    { hour: 16, calls: 95 }, { hour: 17, calls: 82 }, { hour: 18, calls: 76 }, { hour: 19, calls: 63 },
+                    { hour: 20, calls: 48 }, { hour: 21, calls: 35 }, { hour: 22, calls: 25 }, { hour: 23, calls: 18 }
+                ]
+            },
+            shelters: {
+                summary: {
+                    active_shelters: 10,
+                    total_capacity: 742,
+                    current_occupancy: 418,
+                    occupancy_rate: 56.3
+                },
+                facilities: [
+                    {
+                        id: 1,
+                        name: "First Baptist Church of Branson",
+                        address: "1051 Bird Rd, Branson, MO 65616",
+                        county: "Taney",
+                        state: "MO",
+                        capacity: 95,
+                        current: 67,
+                        contact_name: "Sarah Martinez",
+                        contact_phone: "(417) 334-2266",
+                        contact_email: "s.martinez@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 2,
+                        name: "Reeds Spring Methodist Church",
+                        address: "13370 State Hwy 13, Reeds Spring, MO 65737",
+                        county: "Stone",
+                        state: "MO",
+                        capacity: 72,
+                        current: 51,
+                        contact_name: "Michael Thompson",
+                        contact_phone: "(417) 272-8356",
+                        contact_email: "m.thompson@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 3,
+                        name: "Cassville First United Methodist",
+                        address: "318 Main St, Cassville, MO 65625",
+                        county: "Barry",
+                        state: "MO",
+                        capacity: 84,
+                        current: 59,
+                        contact_name: "Jennifer Lee",
+                        contact_phone: "(417) 847-2717",
+                        contact_email: "j.lee@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 4,
+                        name: "Anderson Baptist Church",
+                        address: "400 Elm St, Anderson, MO 64831",
+                        county: "McDonald",
+                        state: "MO",
+                        capacity: 65,
+                        current: 44,
+                        contact_name: "Robert Davis",
+                        contact_phone: "(417) 845-3214",
+                        contact_email: "r.davis@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 5,
+                        name: "Neosho First Christian Church",
+                        address: "510 N Wood St, Neosho, MO 64850",
+                        county: "Newton",
+                        state: "MO",
+                        capacity: 78,
+                        current: 62,
+                        contact_name: "Amanda Wilson",
+                        contact_phone: "(417) 451-1234",
+                        contact_email: "a.wilson@redcross.org",
+                        status: "Limited"
+                    },
+                    {
+                        id: 6,
+                        name: "Mt. Vernon Baptist Church",
+                        address: "123 Church St, Mt. Vernon, MO 65712",
+                        county: "Lawrence",
+                        state: "MO",
+                        capacity: 58,
+                        current: 23,
+                        contact_name: "David Brown",
+                        contact_phone: "(417) 466-7891",
+                        contact_email: "d.brown@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 7,
+                        name: "Harrison First Baptist Church",
+                        address: "804 N Main St, Harrison, AR 72601",
+                        county: "Boone",
+                        state: "AR",
+                        capacity: 89,
+                        current: 45,
+                        contact_name: "Lisa Garcia",
+                        contact_phone: "(870) 741-5623",
+                        contact_email: "l.garcia@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 8,
+                        name: "Berryville Assembly of God",
+                        address: "905 W Trimble Ave, Berryville, AR 72616",
+                        county: "Carroll",
+                        state: "AR",
+                        capacity: 71,
+                        current: 38,
+                        contact_name: "Kevin Rodriguez",
+                        contact_phone: "(870) 423-7890",
+                        contact_email: "k.rodriguez@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 9,
+                        name: "Huntsville First Methodist",
+                        address: "200 Madison St, Huntsville, AR 72740",
+                        county: "Madison",
+                        state: "AR",
+                        capacity: 66,
+                        current: 16,
+                        contact_name: "Patricia Johnson",
+                        contact_phone: "(479) 738-2145",
+                        contact_email: "p.johnson@redcross.org",
+                        status: "Available"
+                    },
+                    {
+                        id: 10,
+                        name: "Fayetteville Community Church",
+                        address: "1129 N College Ave, Fayetteville, AR 72703",
+                        county: "Washington",
+                        state: "AR",
+                        capacity: 64,
+                        current: 13,
+                        contact_name: "Christopher White",
+                        contact_phone: "(479) 521-3456",
+                        contact_email: "c.white@redcross.org",
+                        status: "Available"
+                    }
+                ]
+            }
         };
-
+        
+        // Initialize when DOM loads
         document.addEventListener('DOMContentLoaded', function() {
             initializeDashboard();
         });
 
-        async function initializeDashboard() {
-            console.log('🚀 Initializing Enterprise Dashboard...');
+        function initializeDashboard() {
+            console.log('🚀 Initializing Emergency Operations Dashboard...');
             
-            await loadDashboardData();
-            initializeTabs();
+            setupTabs();
             updateTimestamp();
-            updateKPIValues();
             createCharts();
-            populateStatusTable();
-            createSparklines();
+            populateShelterTable();
             startLiveUpdates();
             
-            console.log('✅ Enterprise Dashboard Loaded Successfully');
+            console.log('✅ Dashboard Loaded Successfully');
         }
 
-        async function loadDashboardData() {
-            console.log('📥 Loading dashboard data...');
-            
-            try {
-                const dataFiles = [
-                    'red_cross_assessments.json',
-                    'red_cross_resources.json', 
-                    'red_cross_operations.json',
-                    'red_cross_analytics.json',
-                    'red_cross_summary.json'
-                ];
-                
-                const responses = await Promise.allSettled(
-                    dataFiles.map(file => fetch(file).then(r => r.json()).catch(e => null))
-                );
-                
-                dashboardData.assessments = responses[0].value || generateFallbackAssessmentData();
-                dashboardData.resources = responses[1].value || generateFallbackResourceData();
-                dashboardData.operations = responses[2].value || generateFallbackOperationData();
-                dashboardData.analytics = responses[3].value || generateFallbackAnalyticsData();
-                dashboardData.summary = responses[4].value || generateFallbackSummaryData();
-                
-                console.log('✅ Dashboard data loaded successfully');
-                
-            } catch (error) {
-                console.log('⚠️  Using fallback data due to:', error.message);
-                dashboardData.assessments = generateFallbackAssessmentData();
-                dashboardData.resources = generateFallbackResourceData();
-                dashboardData.operations = generateFallbackOperationData();
-                dashboardData.analytics = generateFallbackAnalyticsData();
-                dashboardData.summary = generateFallbackSummaryData();
-            }
-        }
-
-        function generateFallbackAssessmentData() {
-            return {
-                summary: {
-                    total_assessments: 2439,
-                    completion_rate: 89.2,
-                    critical_damage: 685,
-                    daily_average: 116.1
-                },
-                county_analysis: [
-                    { County: 'Jackson', State: 'Missouri', Total: 347, Complete: 312, Major_Damage: 89, Completion_Rate: 89.9, Priority: 'High' },
-                    { County: 'Pulaski', State: 'Arkansas', Total: 289, Complete: 267, Major_Damage: 73, Completion_Rate: 92.4, Priority: 'High' },
-                    { County: 'Washington', State: 'Arkansas', Total: 256, Complete: 231, Major_Damage: 62, Completion_Rate: 90.2, Priority: 'High' },
-                    { County: 'St. Louis', State: 'Missouri', Total: 234, Complete: 198, Major_Damage: 45, Completion_Rate: 84.6, Priority: 'Medium' },
-                    { County: 'Jefferson', State: 'Missouri', Total: 198, Complete: 178, Major_Damage: 38, Completion_Rate: 89.9, Priority: 'Medium' },
-                    { County: 'Boone', State: 'Missouri', Total: 167, Complete: 145, Major_Damage: 32, Completion_Rate: 86.8, Priority: 'Medium' },
-                    { County: 'Clay', State: 'Missouri', Total: 145, Complete: 132, Major_Damage: 28, Completion_Rate: 91.0, Priority: 'Medium' },
-                    { County: 'Greene', State: 'Missouri', Total: 132, Complete: 118, Major_Damage: 25, Completion_Rate: 89.4, Priority: 'Medium' }
-                ],
-                damage_distribution: {
-                    'Minor': 976,
-                    'Moderate': 731,
-                    'Major': 487,
-                    'Destroyed': 198,
-                    'Inaccessible': 47
-                },
-                daily_trend: [
-                    { date: '2025-06-17', count: 89 },
-                    { date: '2025-06-18', count: 95 },
-                    { date: '2025-06-19', count: 112 },
-                    { date: '2025-06-20', count: 108 },
-                    { date: '2025-06-21', count: 127 },
-                    { date: '2025-06-22', count: 134 },
-                    { date: '2025-06-23', count: 116 },
-                    { date: '2025-06-24', count: 142 },
-                    { date: '2025-06-25', count: 138 },
-                    { date: '2025-06-26', count: 129 },
-                    { date: '2025-06-27', count: 145 },
-                    { date: '2025-06-28', count: 152 },
-                    { date: '2025-06-29', count: 148 },
-                    { date: '2025-06-30', count: 163 }
-                ]
-            };
-        }
-
-        function generateFallbackResourceData() {
-            return {
-                summary: {
-                    total_capacity: 1200,
-                    total_occupancy: 847,
-                    active_shelters: 23,
-                    at_capacity: 3
-                }
-            };
-        }
-
-        function generateFallbackOperationData() {
-            return {
-                deployments_today: 58,
-                response_time_avg: 2.3,
-                coverage_counties: 57,
-                active_missions: 18
-            };
-        }
-
-        function generateFallbackAnalyticsData() {
-            return {
-                predictions: {
-                    completion_forecast: "14 days",
-                    resource_efficiency: 87.3,
-                    risk_score: 7.4,
-                    prediction_accuracy: 94.2
-                }
-            };
-        }
-
-        function generateFallbackSummaryData() {
-            return {
-                executive_summary: "Current disaster response operations proceeding efficiently with 2,439 completed assessments.",
-                generated_at: new Date().toISOString()
-            };
-        }
-
-        function initializeTabs() {
+        // Tab System
+        function setupTabs() {
             const tabs = document.querySelectorAll('.nav-tab');
             const contents = document.querySelectorAll('.tab-content');
 
@@ -896,49 +1301,43 @@
                         content.classList.remove('active');
                         if (content.id === targetTab + '-tab') {
                             content.classList.add('active');
+                            
+                            setTimeout(() => {
+                                if (targetTab === 'calls') {
+                                    createCallCharts();
+                                } else if (targetTab === 'shelters') {
+                                    createShelterCharts();
+                                }
+                            }, 100);
                         }
                     });
                 });
             });
         }
 
-        function updateTimestamp() {
-            const now = new Date();
-            const timeStr = now.toLocaleTimeString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            });
-            document.getElementById('lastUpdated').textContent = timeStr;
-        }
-
-        function updateKPIValues() {
-            if (!dashboardData.assessments) return;
-
-            const summary = dashboardData.assessments.summary;
-            
-            const totalEl = document.getElementById('totalAssessments');
-            const criticalEl = document.getElementById('criticalDamage');
-            const rateEl = document.getElementById('assessmentRate');
-            const completionEl = document.getElementById('completionRate');
-
-            if (totalEl) totalEl.textContent = summary.total_assessments.toLocaleString();
-            if (criticalEl) criticalEl.textContent = summary.critical_damage.toLocaleString();
-            if (rateEl) rateEl.textContent = Math.round(summary.daily_average);
-            if (completionEl) completionEl.textContent = summary.completion_rate.toFixed(1);
-        }
-
+        // Chart Creation Functions
         function createCharts() {
-            createCountyChart();
-            createDamageChart();
-            createTrendChart();
+            createSparklines();
         }
 
-        function createCountyChart() {
-            const canvas = document.getElementById('countyChart');
-            const ctx = canvas.getContext('2d');
+        function createCallCharts() {
+            createCallTypeChart();
+            createGeoHeatMap();
+            createCallTimelineChart();
+            createCallSparklines();
+        }
+
+        function createShelterCharts() {
+            createShelterCapacityChart();
+            createShelterMapChart();
+            createShelterSparklines();
+        }
+
+        function createCallTypeChart() {
+            const canvas = document.getElementById('callTypeChart');
+            if (!canvas) return;
             
+            const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
             const rect = container.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
@@ -947,26 +1346,199 @@
             canvas.height = rect.height * dpr;
             canvas.style.width = rect.width + 'px';
             canvas.style.height = rect.height + 'px';
-            
             ctx.scale(dpr, dpr);
             
             const width = rect.width;
             const height = rect.height;
             
-            const countyData = dashboardData.assessments.county_analysis.slice(0, 8);
-            const counties = countyData.map(c => c.County);
-            const assessments = countyData.map(c => c.Total);
-            const majorDamage = countyData.map(c => c.Major_Damage);
+            const callData = dashboardData.calls.type_distribution;
+            const data = Object.entries(callData);
+            const colors = ['#990000', '#cc0000', '#059669', '#d97706', '#2563eb'];
             
-            const maxValue = Math.max(...assessments);
-            const margin = { top: 60, right: 40, bottom: 80, left: 60 };
-            const chartWidth = width - margin.left - margin.right;
-            const chartHeight = height - margin.top - margin.bottom;
-            const barWidth = chartWidth / counties.length * 0.8;
-            const barSpacing = chartWidth / counties.length * 0.2;
+            const total = Object.values(callData).reduce((sum, val) => sum + val, 0);
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(width, height) * 0.3;
             
             ctx.clearRect(0, 0, width, height);
             
+            let currentAngle = -Math.PI / 2;
+            
+            data.forEach(([label, value], index) => {
+                const sliceAngle = (value / total) * 2 * Math.PI;
+                
+                // Draw slice
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                ctx.closePath();
+                ctx.fillStyle = colors[index];
+                ctx.fill();
+                
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Labels
+                const labelAngle = currentAngle + sliceAngle / 2;
+                const labelRadius = radius + 30;
+                const labelX = centerX + Math.cos(labelAngle) * labelRadius;
+                const labelY = centerY + Math.sin(labelAngle) * labelRadius;
+                
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 11px Inter';
+                ctx.textAlign = labelX > centerX ? 'left' : 'right';
+                ctx.fillText(label, labelX, labelY - 5);
+                
+                ctx.font = '10px Inter';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText(value.toLocaleString(), labelX, labelY + 8);
+                
+                const percentage = ((value / total) * 100).toFixed(1);
+                ctx.fillText(percentage + '%', labelX, labelY + 20);
+                
+                currentAngle += sliceAngle;
+            });
+            
+            // Center total
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius * 0.5, 0, 2 * Math.PI);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 14px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Total Calls', centerX, centerY - 6);
+            ctx.font = 'bold 12px Inter';
+            ctx.fillText(total.toLocaleString(), centerX, centerY + 10);
+        }
+
+        function createGeoHeatMap() {
+            const canvas = document.getElementById('geoHeatMap');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const rect = container.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            ctx.scale(dpr, dpr);
+            
+            const width = rect.width;
+            const height = rect.height;
+            
+            const countyData = dashboardData.calls.county_calls;
+            const maxCalls = Math.max(...countyData.map(c => c.Calls));
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            // Create simplified county map visualization
+            const margin = { top: 40, right: 40, bottom: 40, left: 40 };
+            const mapWidth = width - margin.left - margin.right;
+            const mapHeight = height - margin.top - margin.bottom;
+            
+            // Draw state boundaries (simplified)
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 2;
+            
+            // Missouri outline (simplified)
+            ctx.beginPath();
+            ctx.rect(margin.left, margin.top, mapWidth * 0.6, mapHeight * 0.7);
+            ctx.stroke();
+            ctx.fillStyle = '#f8fafc';
+            ctx.fill();
+            
+            // Arkansas outline (simplified)
+            ctx.beginPath();
+            ctx.rect(margin.left + mapWidth * 0.2, margin.top + mapHeight * 0.4, mapWidth * 0.6, mapHeight * 0.5);
+            ctx.stroke();
+            ctx.fillStyle = '#f8fafc';
+            ctx.fill();
+            
+            // Draw county heat indicators
+            countyData.forEach((county, index) => {
+                const intensity = county.Calls / maxCalls;
+                const x = margin.left + (index % 5) * (mapWidth / 5) + mapWidth / 10;
+                const y = margin.top + Math.floor(index / 5) * (mapHeight / 3) + mapHeight / 6;
+                const radius = 8 + intensity * 12;
+                
+                // Heat circle
+                const alpha = 0.3 + intensity * 0.6;
+                ctx.fillStyle = `rgba(153, 0, 0, ${alpha})`;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // County label
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 10px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText(county.County, x, y - radius - 5);
+                
+                // Call count
+                ctx.font = '9px Inter';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText(county.Calls.toString(), x, y + radius + 12);
+            });
+            
+            // Legend
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 12px Inter';
+            ctx.textAlign = 'left';
+            ctx.fillText('Call Volume Heat Map', margin.left, 25);
+            
+            // Heat scale
+            for (let i = 0; i < 5; i++) {
+                const x = width - margin.right - 100 + i * 15;
+                const alpha = 0.3 + (i / 4) * 0.6;
+                ctx.fillStyle = `rgba(153, 0, 0, ${alpha})`;
+                ctx.beginPath();
+                ctx.arc(x, 25, 6, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            
+            ctx.fillStyle = '#64748b';
+            ctx.font = '10px Inter';
+            ctx.fillText('Low', width - margin.right - 105, 35);
+            ctx.fillText('High', width - margin.right - 25, 35);
+        }
+
+        function createCallTimelineChart() {
+            const canvas = document.getElementById('callTimelineChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const rect = container.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            ctx.scale(dpr, dpr);
+            
+            const width = rect.width;
+            const height = rect.height;
+            
+            const hourlyData = dashboardData.calls.hourly_distribution;
+            const maxCalls = Math.max(...hourlyData.map(h => h.calls));
+            
+            const margin = { top: 40, right: 40, bottom: 60, left: 60 };
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            // Grid lines
             ctx.strokeStyle = '#f1f5f9';
             ctx.lineWidth = 1;
             for (let i = 0; i <= 5; i++) {
@@ -976,156 +1548,64 @@
                 ctx.lineTo(width - margin.right, y);
                 ctx.stroke();
                 
+                // Y-axis labels
                 ctx.fillStyle = '#64748b';
-                ctx.font = '12px Inter';
+                ctx.font = '11px Inter';
                 ctx.textAlign = 'right';
-                const value = Math.round((maxValue / 5) * (5 - i));
+                const value = Math.round((maxCalls / 5) * (5 - i));
                 ctx.fillText(value.toString(), margin.left - 10, y + 4);
             }
             
-            counties.forEach((county, index) => {
-                const x = margin.left + index * (chartWidth / counties.length) + barSpacing / 2;
-                const assessmentHeight = (assessments[index] / maxValue) * chartHeight;
-                const damageHeight = (majorDamage[index] / maxValue) * chartHeight;
+            // Draw bars
+            const barWidth = chartWidth / 24;
+            hourlyData.forEach((data, index) => {
+                const x = margin.left + index * barWidth;
+                const barHeight = (data.calls / maxCalls) * chartHeight;
                 
-                ctx.fillStyle = '#3b82f6';
-                ctx.fillRect(x, margin.top + chartHeight - assessmentHeight, barWidth * 0.45, assessmentHeight);
-                
-                ctx.fillStyle = '#dc2626';
-                ctx.fillRect(x + barWidth * 0.5, margin.top + chartHeight - damageHeight, barWidth * 0.45, damageHeight);
-                
-                ctx.fillStyle = '#0f172a';
-                ctx.font = 'bold 13px Inter';
-                ctx.textAlign = 'center';
-                ctx.save();
-                ctx.translate(x + barWidth / 2, height - margin.bottom + 20);
-                ctx.rotate(-Math.PI / 6);
-                ctx.fillText(county, 0, 0);
-                ctx.restore();
-                
-                ctx.fillStyle = '#ffffff';
-                ctx.font = 'bold 11px Inter';
-                ctx.textAlign = 'center';
-                if (assessmentHeight > 20) {
-                    ctx.fillText(assessments[index].toString(), x + barWidth * 0.225, margin.top + chartHeight - assessmentHeight / 2 + 4);
+                // Gradient based on time of day
+                const gradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
+                if (index >= 6 && index <= 18) {
+                    gradient.addColorStop(0, '#990000');
+                    gradient.addColorStop(1, '#cc0000');
+                } else {
+                    gradient.addColorStop(0, '#64748b');
+                    gradient.addColorStop(1, '#475569');
                 }
-                if (damageHeight > 20) {
-                    ctx.fillText(majorDamage[index].toString(), x + barWidth * 0.725, margin.top + chartHeight - damageHeight / 2 + 4);
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(x, margin.top + chartHeight - barHeight, barWidth * 0.8, barHeight);
+                
+                // Hour labels (every 2 hours)
+                if (index % 2 === 0) {
+                    ctx.fillStyle = '#64748b';
+                    ctx.font = '10px Inter';
+                    ctx.textAlign = 'center';
+                    const hour = data.hour === 0 ? '12AM' : data.hour === 12 ? '12PM' : 
+                                 data.hour < 12 ? data.hour + 'AM' : (data.hour - 12) + 'PM';
+                    ctx.fillText(hour, x + barWidth * 0.4, height - margin.bottom + 15);
+                }
+                
+                // Value on top of bar if significant
+                if (barHeight > 20) {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = 'bold 9px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(data.calls.toString(), x + barWidth * 0.4, margin.top + chartHeight - barHeight + 12);
                 }
             });
             
-            const legendY = 25;
-            ctx.fillStyle = '#3b82f6';
-            ctx.fillRect(margin.left, legendY, 16, 16);
+            // Chart title
             ctx.fillStyle = '#0f172a';
             ctx.font = 'bold 14px Inter';
-            ctx.textAlign = 'left';
-            ctx.fillText('Total Assessments', margin.left + 25, legendY + 12);
-            
-            ctx.fillStyle = '#dc2626';
-            ctx.fillRect(margin.left + 180, legendY, 16, 16);
-            ctx.fillStyle = '#0f172a';
-            ctx.fillText('Major Damage', margin.left + 205, legendY + 12);
-        }
-
-        function createDamageChart() {
-            const canvas = document.getElementById('damageChart');
-            const ctx = canvas.getContext('2d');
-            
-            const container = canvas.parentElement;
-            const rect = container.getBoundingClientRect();
-            const dpr = window.devicePixelRatio || 1;
-            
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            canvas.style.width = rect.width + 'px';
-            canvas.style.height = rect.height + 'px';
-            
-            ctx.scale(dpr, dpr);
-            
-            const width = rect.width;
-            const height = rect.height;
-            
-            const damageData = dashboardData.assessments.damage_distribution;
-            const data = {
-                'Minor': { value: damageData.Minor || 0, color: '#059669' },
-                'Moderate': { value: damageData.Moderate || 0, color: '#d97706' },
-                'Major': { value: damageData.Major || 0, color: '#dc2626' },
-                'Destroyed': { value: damageData.Destroyed || 0, color: '#7f1d1d' },
-                'Inaccessible': { value: damageData.Inaccessible || 0, color: '#374151' }
-            };
-            
-            const total = Object.values(data).reduce((sum, item) => sum + item.value, 0);
-            const centerX = width / 2;
-            const centerY = height / 2;
-            const radius = Math.min(width, height) * 0.35;
-            
-            ctx.clearRect(0, 0, width, height);
-            
-            let currentAngle = -Math.PI / 2;
-            
-            Object.entries(data).forEach(([label, item], index) => {
-                const sliceAngle = (item.value / total) * 2 * Math.PI;
-                
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
-                ctx.closePath();
-                ctx.fillStyle = item.color;
-                ctx.fill();
-                
-                ctx.strokeStyle = '#ffffff';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                const labelAngle = currentAngle + sliceAngle / 2;
-                const labelRadius = radius + 30;
-                const labelX = centerX + Math.cos(labelAngle) * labelRadius;
-                const labelY = centerY + Math.sin(labelAngle) * labelRadius;
-                
-                ctx.strokeStyle = item.color;
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(centerX + Math.cos(labelAngle) * radius, centerY + Math.sin(labelAngle) * radius);
-                ctx.lineTo(centerX + Math.cos(labelAngle) * (radius + 15), centerY + Math.sin(labelAngle) * (radius + 15));
-                ctx.stroke();
-                
-                ctx.fillStyle = '#0f172a';
-                ctx.font = 'bold 13px Inter';
-                ctx.textAlign = labelX > centerX ? 'left' : 'right';
-                ctx.fillText(label, labelX, labelY - 5);
-                
-                ctx.font = '12px Inter';
-                ctx.fillStyle = '#64748b';
-                ctx.fillText(item.value.toLocaleString(), labelX, labelY + 10);
-                
-                const percentage = ((item.value / total) * 100).toFixed(1);
-                ctx.fillText(percentage + '%', labelX, labelY + 25);
-                
-                currentAngle += sliceAngle;
-            });
-            
-            const innerRadius = radius * 0.4;
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, innerRadius, 0, 2 * Math.PI);
-            ctx.fillStyle = '#ffffff';
-            ctx.fill();
-            ctx.strokeStyle = '#e2e8f0';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            
-            ctx.fillStyle = '#0f172a';
-            ctx.font = 'bold 18px Inter';
             ctx.textAlign = 'center';
-            ctx.fillText('Total', centerX, centerY - 8);
-            ctx.font = 'bold 16px Inter';
-            ctx.fillText(total.toLocaleString(), centerX, centerY + 12);
+            ctx.fillText('Call Volume by Hour of Day', width / 2, 25);
         }
 
-        function createTrendChart() {
-            const canvas = document.getElementById('trendChart');
-            const ctx = canvas.getContext('2d');
+        function createShelterCapacityChart() {
+            const canvas = document.getElementById('shelterCapacityChart');
+            if (!canvas) return;
             
+            const ctx = canvas.getContext('2d');
             const container = canvas.parentElement;
             const rect = container.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
@@ -1134,34 +1614,25 @@
             canvas.height = rect.height * dpr;
             canvas.style.width = rect.width + 'px';
             canvas.style.height = rect.height + 'px';
-            
             ctx.scale(dpr, dpr);
             
             const width = rect.width;
             const height = rect.height;
             
-            const trendData = dashboardData.assessments.daily_trend || [];
-            const dailyData = trendData.map(d => d.count);
-            const dates = trendData.map(d => {
-                const date = new Date(d.date);
-                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            });
+            const shelters = dashboardData.shelters.facilities.slice(0, 8);
+            const maxCapacity = Math.max(...shelters.map(s => s.capacity));
             
-            if (dailyData.length === 0) return;
-            
-            const maxValue = Math.max(...dailyData);
-            const minValue = Math.min(...dailyData) - 10;
-            const range = maxValue - minValue;
-            
-            const margin = { top: 30, right: 30, bottom: 60, left: 50 };
+            const margin = { top: 60, right: 40, bottom: 80, left: 60 };
             const chartWidth = width - margin.left - margin.right;
             const chartHeight = height - margin.top - margin.bottom;
+            const barWidth = chartWidth / shelters.length * 0.8;
+            const barSpacing = chartWidth / shelters.length * 0.2;
             
             ctx.clearRect(0, 0, width, height);
             
+            // Grid lines
             ctx.strokeStyle = '#f1f5f9';
             ctx.lineWidth = 1;
-            
             for (let i = 0; i <= 5; i++) {
                 const y = margin.top + (chartHeight / 5) * i;
                 ctx.beginPath();
@@ -1172,101 +1643,173 @@
                 ctx.fillStyle = '#64748b';
                 ctx.font = '11px Inter';
                 ctx.textAlign = 'right';
-                const value = Math.round(maxValue - (range / 5) * i);
+                const value = Math.round((maxCapacity / 5) * (5 - i));
                 ctx.fillText(value.toString(), margin.left - 10, y + 4);
             }
             
-            const stepX = chartWidth / (dailyData.length - 1);
-            
-            ctx.beginPath();
-            dailyData.forEach((value, index) => {
-                const x = margin.left + index * stepX;
-                const y = margin.top + chartHeight - ((value - minValue) / range) * chartHeight;
+            // Draw bars
+            shelters.forEach((shelter, index) => {
+                const x = margin.left + index * (chartWidth / shelters.length) + barSpacing / 2;
+                const capacityHeight = (shelter.capacity / maxCapacity) * chartHeight;
+                const currentHeight = (shelter.current / maxCapacity) * chartHeight;
+                const utilization = shelter.current / shelter.capacity;
                 
-                if (index === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
-            });
-            
-            ctx.lineTo(margin.left + chartWidth, margin.top + chartHeight);
-            ctx.lineTo(margin.left, margin.top + chartHeight);
-            ctx.closePath();
-            ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
-            ctx.fill();
-            
-            ctx.strokeStyle = '#2563eb';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            
-            dailyData.forEach((value, index) => {
-                const x = margin.left + index * stepX;
-                const y = margin.top + chartHeight - ((value - minValue) / range) * chartHeight;
+                // Capacity bar (light)
+                ctx.fillStyle = '#e2e8f0';
+                ctx.fillRect(x, margin.top + chartHeight - capacityHeight, barWidth, capacityHeight);
                 
-                if (index === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
-            });
-            ctx.stroke();
-            
-            dailyData.forEach((value, index) => {
-                const x = margin.left + index * stepX;
-                const y = margin.top + chartHeight - ((value - minValue) / range) * chartHeight;
+                // Current occupancy bar (colored by utilization)
+                let occupancyColor = '#059669'; // Green for low
+                if (utilization > 0.8) occupancyColor = '#dc2626'; // Red for high
+                else if (utilization > 0.6) occupancyColor = '#d97706'; // Orange for medium
                 
+                ctx.fillStyle = occupancyColor;
+                ctx.fillRect(x, margin.top + chartHeight - currentHeight, barWidth, currentHeight);
+                
+                // Shelter name (shortened)
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 10px Inter';
+                ctx.textAlign = 'center';
+                ctx.save();
+                ctx.translate(x + barWidth / 2, height - margin.bottom + 20);
+                ctx.rotate(-Math.PI / 6);
+                const shortName = shelter.name.split(' ').slice(0, 2).join(' ');
+                ctx.fillText(shortName, 0, 0);
+                ctx.restore();
+                
+                // Utilization percentage on bar
                 ctx.fillStyle = '#ffffff';
-                ctx.beginPath();
-                ctx.arc(x, y, 5, 0, 2 * Math.PI);
-                ctx.fill();
-                
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-            });
-            
-            ctx.fillStyle = '#64748b';
-            ctx.font = '10px Inter';
-            ctx.textAlign = 'center';
-            dates.forEach((date, index) => {
-                if (index % 2 === 0) {
-                    const x = margin.left + index * stepX;
-                    ctx.fillText(date, x, height - margin.bottom + 20);
+                ctx.font = 'bold 9px Inter';
+                ctx.textAlign = 'center';
+                if (currentHeight > 15) {
+                    const percentage = Math.round(utilization * 100);
+                    ctx.fillText(percentage + '%', x + barWidth / 2, margin.top + chartHeight - currentHeight / 2 + 3);
                 }
             });
+            
+            // Legend
+            const legendY = 25;
+            ctx.fillStyle = '#e2e8f0';
+            ctx.fillRect(margin.left, legendY, 16, 16);
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 12px Inter';
+            ctx.textAlign = 'left';
+            ctx.fillText('Total Capacity', margin.left + 25, legendY + 12);
+            
+            ctx.fillStyle = '#059669';
+            ctx.fillRect(margin.left + 150, legendY, 16, 16);
+            ctx.fillText('Current Occupancy', margin.left + 175, legendY + 12);
+            
+            // Title
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 14px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Shelter Capacity vs Current Occupancy', width / 2, 15);
         }
 
-        function populateStatusTable() {
-            const tbody = document.getElementById('statusTable');
-            if (!tbody || !dashboardData.assessments) return;
+        function createShelterMapChart() {
+            const canvas = document.getElementById('shelterMapChart');
+            if (!canvas) return;
             
-            let html = '';
-            const counties = dashboardData.assessments.county_analysis;
-
-            counties.forEach(county => {
-                const completionRate = county.Completion_Rate;
-                const priority = county.Priority || (county.Major_Damage > 40 ? 'High' : county.Major_Damage > 20 ? 'Medium' : 'Low');
-                const priorityClass = priority === 'High' ? 'critical' : priority === 'Medium' ? 'progress' : 'complete';
-                const statusClass = completionRate >= 90 ? 'complete' : completionRate >= 75 ? 'progress' : 'pending';
-                const statusText = completionRate >= 90 ? 'Complete' : completionRate >= 75 ? 'In Progress' : 'Needs Attention';
-
-                html += `
-                    <tr>
-                        <td style="font-weight: 600;">${county.County}</td>
-                        <td>${county.State}</td>
-                        <td>${county.Total}</td>
-                        <td>${county.Complete}</td>
-                        <td>${county.Total - county.Complete}</td>
-                        <td style="font-weight: 600; color: ${county.Major_Damage > 40 ? '#dc2626' : '#059669'};">${county.Major_Damage}</td>
-                        <td style="font-weight: 600;">${completionRate}%</td>
-                        <td><span class="status-badge ${priorityClass}">${priority}</span></td>
-                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
-                    </tr>
-                `;
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const rect = container.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            ctx.scale(dpr, dpr);
+            
+            const width = rect.width;
+            const height = rect.height;
+            
+            const shelters = dashboardData.shelters.facilities;
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw simplified map background
+            const margin = { top: 40, right: 40, bottom: 60, left: 40 };
+            const mapWidth = width - margin.left - margin.right;
+            const mapHeight = height - margin.top - margin.bottom;
+            
+            // State boundaries
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 2;
+            ctx.fillStyle = '#f8fafc';
+            
+            // Missouri
+            ctx.beginPath();
+            ctx.rect(margin.left, margin.top, mapWidth * 0.6, mapHeight * 0.6);
+            ctx.fill();
+            ctx.stroke();
+            
+            // Arkansas
+            ctx.beginPath();
+            ctx.rect(margin.left + mapWidth * 0.1, margin.top + mapHeight * 0.4, mapWidth * 0.7, mapHeight * 0.5);
+            ctx.fill();
+            ctx.stroke();
+            
+            // State labels
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'bold 14px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('MISSOURI', margin.left + mapWidth * 0.3, margin.top + mapHeight * 0.25);
+            ctx.fillText('ARKANSAS', margin.left + mapWidth * 0.45, margin.top + mapHeight * 0.7);
+            
+            // Plot shelters
+            shelters.forEach((shelter, index) => {
+                // Calculate position (simplified coordinate mapping)
+                const x = margin.left + (index % 5) * (mapWidth / 5) + mapWidth / 10;
+                const y = margin.top + Math.floor(index / 5) * (mapHeight / 2) + mapHeight / 4;
+                
+                const utilization = shelter.current / shelter.capacity;
+                let color = '#059669'; // Green for available
+                
+                if (utilization > 0.8) {
+                    color = '#dc2626'; // Red for near full
+                } else if (utilization > 0.6) {
+                    color = '#d97706'; // Orange for limited
+                }
+                
+                // Shelter icon
+                ctx.fillStyle = color;
+                ctx.font = 'bold 16px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText('⛪', x, y);
+                
+                // Shelter label
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 9px Inter';
+                const shortName = shelter.name.split(' ')[0];
+                ctx.fillText(shortName, x, y + 20);
+                
+                // Occupancy info
+                ctx.font = '8px Inter';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText(`${shelter.current}/${shelter.capacity}`, x, y + 30);
             });
-
-            tbody.innerHTML = html;
+            
+            // Legend
+            const legendX = margin.left;
+            const legendY = height - margin.bottom + 20;
+            
+            ctx.fillStyle = '#059669';
+            ctx.font = 'bold 12px Inter';
+            ctx.fillText('● Available', legendX, legendY);
+            
+            ctx.fillStyle = '#d97706';
+            ctx.fillText('● Limited', legendX + 80, legendY);
+            
+            ctx.fillStyle = '#dc2626';
+            ctx.fillText('● Near Full', legendX + 150, legendY);
+            
+            // Title
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 14px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('Emergency Shelter Locations', width / 2, 25);
         }
 
         function createSparklines() {
@@ -1278,116 +1821,165 @@
             ];
 
             sparklines.forEach(sparkline => {
-                const canvas = document.getElementById(sparkline.id);
-                if (!canvas) return;
-                
-                const ctx = canvas.getContext('2d');
-                const container = canvas.parentElement;
-                const rect = container.getBoundingClientRect();
-                const dpr = window.devicePixelRatio || 1;
-                
-                canvas.width = rect.width * dpr;
-                canvas.height = 40 * dpr;
-                canvas.style.width = rect.width + 'px';
-                canvas.style.height = '40px';
-                
-                ctx.scale(dpr, dpr);
-                
-                const width = rect.width;
-                const height = 40;
-                
-                const data = sparkline.data;
-                const maxValue = Math.max(...data);
-                const minValue = Math.min(...data);
-                const range = maxValue - minValue || 1;
-                
-                const stepX = width / (data.length - 1);
-                
-                ctx.clearRect(0, 0, width, height);
-                
-                const gradient = ctx.createLinearGradient(0, 0, 0, height);
-                gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
-                gradient.addColorStop(1, 'rgba(59, 130, 246, 0.05)');
-                
-                ctx.beginPath();
-                data.forEach((value, index) => {
-                    const x = index * stepX;
-                    const y = height - ((value - minValue) / range) * (height - 6) - 3;
-                    
-                    if (index === 0) {
-                        ctx.moveTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
-                });
-                ctx.lineTo(width, height);
-                ctx.lineTo(0, height);
-                ctx.closePath();
-                ctx.fillStyle = gradient;
-                ctx.fill();
-                
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                
-                data.forEach((value, index) => {
-                    const x = index * stepX;
-                    const y = height - ((value - minValue) / range) * (height - 6) - 3;
-                    
-                    if (index === 0) {
-                        ctx.moveTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
-                });
-                
-                ctx.stroke();
-                
-                const lastValue = data[data.length - 1];
-                const lastX = (data.length - 1) * stepX;
-                const lastY = height - ((lastValue - minValue) / range) * (height - 6) - 3;
-                
-                ctx.fillStyle = '#ffffff';
-                ctx.beginPath();
-                ctx.arc(lastX, lastY, 3, 0, 2 * Math.PI);
-                ctx.fill();
-                
-                ctx.strokeStyle = '#2563eb';
-                ctx.lineWidth = 2;
-                ctx.stroke();
+                drawSparkline(sparkline.id, sparkline.data);
             });
+        }
+
+        function createCallSparklines() {
+            const callSparklines = [
+                { id: 'callVolumeSparkline', data: [98, 105, 112, 119, 127, 134, 129, 142, 135, 128, 131, 127, 124, 127] }
+            ];
+
+            callSparklines.forEach(sparkline => {
+                drawSparkline(sparkline.id, sparkline.data);
+            });
+        }
+
+        function createShelterSparklines() {
+            const shelterSparklines = [
+                { id: 'occupancySparkline', data: [45.2, 46.8, 48.7, 50.3, 52.3, 54.1, 55.8, 57.2, 59.1, 58.4, 57.4, 56.8, 56.1, 56.3] }
+            ];
+
+            shelterSparklines.forEach(sparkline => {
+                drawSparkline(sparkline.id, sparkline.data);
+            });
+        }
+
+        function drawSparkline(canvasId, data) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const rect = container.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = 40 * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = '40px';
+            
+            ctx.scale(dpr, dpr);
+            
+            const width = rect.width;
+            const height = 40;
+            
+            const maxValue = Math.max(...data);
+            const minValue = Math.min(...data);
+            const range = maxValue - minValue || 1;
+            
+            const stepX = width / (data.length - 1);
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            // Gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, height);
+            gradient.addColorStop(0, 'rgba(153, 0, 0, 0.3)');
+            gradient.addColorStop(1, 'rgba(153, 0, 0, 0.05)');
+            
+            // Area under curve
+            ctx.beginPath();
+            data.forEach((value, index) => {
+                const x = index * stepX;
+                const y = height - ((value - minValue) / range) * (height - 6) - 3;
+                
+                if (index === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.lineTo(width, height);
+            ctx.lineTo(0, height);
+            ctx.closePath();
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Line
+            ctx.strokeStyle = '#990000';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            
+            data.forEach((value, index) => {
+                const x = index * stepX;
+                const y = height - ((value - minValue) / range) * (height - 6) - 3;
+                
+                if (index === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            
+            ctx.stroke();
+            
+            // End point
+            const lastValue = data[data.length - 1];
+            const lastX = (data.length - 1) * stepX;
+            const lastY = height - ((lastValue - minValue) / range) * (height - 6) - 3;
+            
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(lastX, lastY, 3, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.strokeStyle = '#990000';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        function populateShelterTable() {
+            const tbody = document.getElementById('shelterTable');
+            if (!tbody) return;
+            
+            let html = '';
+            const shelters = dashboardData.shelters.facilities;
+
+            shelters.forEach(shelter => {
+                const utilization = (shelter.current / shelter.capacity * 100).toFixed(1);
+                const available = shelter.capacity - shelter.current;
+                const statusClass = utilization >= 80 ? 'critical' : utilization >= 60 ? 'progress' : 'complete';
+                const statusText = utilization >= 80 ? 'Near Full' : utilization >= 60 ? 'Limited' : 'Available';
+
+                html += `
+                    <tr>
+                        <td style="font-weight: 600;">${shelter.name}</td>
+                        <td>${shelter.address}</td>
+                        <td>${shelter.contact_name}</td>
+                        <td>${shelter.contact_phone}</td>
+                        <td>${shelter.capacity}</td>
+                        <td style="font-weight: 600;">${shelter.current}</td>
+                        <td style="color: ${available > 10 ? '#059669' : '#dc2626'}; font-weight: 600;">${available}</td>
+                        <td style="font-weight: 600;">${utilization}%</td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        // Live timestamp updates
+        function updateTimestamp() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            const timestampEl = document.getElementById('lastUpdated');
+            if (timestampEl) {
+                timestampEl.textContent = timeStr + ' UTC';
+            }
         }
 
         function startLiveUpdates() {
             setInterval(updateTimestamp, 1000);
-            setInterval(updateLiveData, 30000);
         }
 
-        function updateLiveData() {
-            if (dashboardData.assessments && dashboardData.assessments.summary) {
-                const summary = dashboardData.assessments.summary;
-                
-                summary.total_assessments += Math.floor(Math.random() * 5);
-                summary.critical_damage += Math.floor(Math.random() * 3);
-                summary.daily_average += (Math.random() * 2 - 1);
-                summary.completion_rate += (Math.random() * 0.4 - 0.2);
-                
-                summary.completion_rate = Math.max(85, Math.min(95, summary.completion_rate));
-                
-                updateKPIValues();
-                createCharts();
-            }
-        }
-
+        // Button Functions
         function exportData() {
             console.log('📤 Exporting data...');
             
             const dataToExport = {
                 exported_at: new Date().toISOString(),
-                assessments: dashboardData.assessments,
-                resources: dashboardData.resources,
-                operations: dashboardData.operations,
-                analytics: dashboardData.analytics
+                calls: dashboardData.calls,
+                shelters: dashboardData.shelters
             };
             
             const blob = new Blob([JSON.stringify(dataToExport, null, 2)], { type: 'application/json' });
@@ -1397,17 +1989,67 @@
             a.download = `red_cross_dashboard_export_${new Date().toISOString().split('T')[0]}.json`;
             a.click();
             URL.revokeObjectURL(url);
+            
+            console.log('✅ Data exported successfully');
         }
 
         function printReport() {
+            console.log('🖨️ Printing report...');
             window.print();
         }
 
         function refreshData() {
-            location.reload();
+            console.log('🔄 Refreshing data...');
+            
+            // Simulate data refresh
+            const activeTab = document.querySelector('.nav-tab.active');
+            if (activeTab) {
+                const tabType = activeTab.dataset.tab;
+                
+                if (tabType === 'calls') {
+                    createCallCharts();
+                } else if (tabType === 'shelters') {
+                    createShelterCharts();
+                    populateShelterTable();
+                }
+            }
+            
+            createSparklines();
+            updateTimestamp();
+            
+            // Show feedback
+            const refreshBtns = document.querySelectorAll('.btn.primary');
+            refreshBtns.forEach(btn => {
+                if (btn.textContent.includes('Refresh')) {
+                    const originalText = btn.textContent;
+                    btn.textContent = 'Refreshed ✓';
+                    btn.style.background = '#059669';
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '#990000';
+                    }, 2000);
+                }
+            });
         }
 
-        console.log('🔴 Red Cross Enterprise Dashboard - Initialized');
+        // Window resize handler
+        window.addEventListener('resize', function() {
+            setTimeout(() => {
+                const activeTab = document.querySelector('.nav-tab.active');
+                if (activeTab) {
+                    const tabType = activeTab.dataset.tab;
+                    
+                    if (tabType === 'calls') {
+                        createCallCharts();
+                    } else if (tabType === 'shelters') {
+                        createShelterCharts();
+                    }
+                    
+                    createSparklines();
+                }
+            }, 100);
+        });
     </script>
 </body>
 </html>
